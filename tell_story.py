@@ -71,7 +71,6 @@ def get_description_and_tell_a_story():
 
     return updated_descriptions
 
-
 def main():
     get_description_and_tell_a_story()
 

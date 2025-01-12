@@ -324,3 +324,6 @@ pyrightconfig.json
 
 pexels-download/*
 images/*
+video/
+output/
+/resized-download/
