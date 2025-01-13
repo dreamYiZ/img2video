@@ -7,13 +7,18 @@ import shutil
 with open('config.yaml', 'r') as f:
     config = yaml.safe_load(f)
 
-PEXEL_API_KEY = os.getenv('PEXEL_API_KEY') or config.get('PEXEL_API_KEY')
+# 从环境变量或config文件读取配置信息
+PEXEL_API_KEY = os.getenv('PEXEL_API_KEY') or config.get('pexels', {}).get('PEXEL_API_KEY')
+PER_PAGE = os.getenv('PER_PAGE') or config.get('pexels', {}).get('PER_PAGE') or 5  # 优先级: env > config > 默认值
+keyword = (len(os.sys.argv) > 1 and os.sys.argv[1]) or os.getenv('KEYWORD') or config.get('pexels', {}).get('keyword') or 'cat'  # 优先级: 命令行参数 > env > config > 默认值
+size = os.getenv('SIZE') or config.get('pexels', {}).get('size') or 'medium'  # 新增配置选项
+
 print(f'[PEXEL_API_KEY] --> {PEXEL_API_KEY}')
+print(f'[PER_PAGE] --> {PER_PAGE}')
+print(f'[keyword] --> {keyword}')
+print(f'[size] --> {size}')
 
 DOWNLOAD_PATH = 'pexels-download/'
-PER_PAGE = os.getenv('PER_PAGE') or config.get('PER_PAGE') or 5  # 优先级: env > config > 默认值
-keyword = (len(os.sys.argv) > 1 and os.sys.argv[1]) or os.getenv('KEYWORD') or config.get('keyword') or 'cat'  # 优先级: 命令行参数 > env > config > 默认值
-size = os.getenv('SIZE') or config.get('size') or 'medium'  # 新增配置选项
 
 if not os.path.exists(DOWNLOAD_PATH):
     os.makedirs(DOWNLOAD_PATH)

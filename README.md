@@ -75,3 +75,17 @@ python download_pexels.py [keyword]
 
 
 希望这些说明能够帮助你更好地理解和使用这个Python脚本。如果你有任何问题或需要进一步的帮助，请随时告诉我！
+Downloading and Extracting Packages:
+
+# conda
+   
+###    To activate this environment, use
+   
+        $ conda activate image2video
+   
+###    To deactivate an active environment, use
+   
+        $ conda deactivate
+
+
+

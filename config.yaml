@@ -1,4 +1,9 @@
-PEXEL_API_KEY: "your_api_key_here"
-PER_PAGE: 5
-keyword: "cat"
-size: "medium"  # 可以是 "small", "medium", 或 "large"
+pexels:
+  PEXEL_API_KEY: "your_api_key_here"
+  PER_PAGE: 5
+  keyword: "cat"
+  size: "medium"  # 可以是 "small", "medium", 或 "large"
+image2video:
+  IMAGE_DURATION: 6
+  IMAGE_SIZE: (1080, 1920)
+
